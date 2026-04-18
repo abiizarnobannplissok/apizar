@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+
+# Documentation (keep only essential docs)
+docs/
+*.md
+!README.md
+!VERCEL_DEPLOYMENT.md
+
+# Test files
+test_*.py
+tests/
+*_test.py
+test_*.sh
+verify*.py
+run_tests.py
+
+# Scripts
+*.sh
+!start.sh
+
+# Misc
+.DS_Store
+.gitignore
+pytest.ini
