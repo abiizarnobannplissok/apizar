@@ -91,7 +91,12 @@ async def chat_completions(request_data: ChatCompletionRequest):
             logger.debug(f"Calling Gemini API: {GEMINI_API_BASE_URL}")
             logger.debug(f"Params: {gemini_params}")
             
-            response = await client.get(GEMINI_API_BASE_URL, params=gemini_params)
+            # Use POST instead of GET to avoid URL length limits (HTTP 431 error)
+            response = await client.post(
+                GEMINI_API_BASE_URL,
+                json=gemini_params,
+                headers={"Content-Type": "application/json"}
+            )
             
             if response.status_code != 200:
                 error_text = response.text
