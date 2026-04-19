@@ -26,6 +26,7 @@ from gemini.config import (
 )
 from gemini.routes_openai import router as openai_router
 from gemini.routes_anthropic import router as anthropic_router
+from gemini.routes_responses import router as responses_router
 
 
 # --- Loguru Configuration ---
@@ -72,6 +73,9 @@ app.include_router(openai_router)
 
 # Anthropic-compatible API: /v1/messages
 app.include_router(anthropic_router)
+
+# Responses API: /v1/responses (for OpenCode compatibility)
+app.include_router(responses_router)
 
 
 def parse_cli_args() -> argparse.Namespace:
